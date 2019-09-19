@@ -22,12 +22,20 @@ const mapDispatchToProps=(dispatch)=>{
       };
       dispatch(action);
     },
+    onDidMount: () => {
+      dispatch({
+        type: `${namespace}/queryInitCards`,
+      });
+    },
   };
 };
 
 
 @connect(mapStateToProps,mapDispatchToProps)
 export default class PuzzleCardsPage extends Component {  
+  componentDidMount() {
+    this.props.onDidMount();
+  }
   render() {
     return (
       <div>
@@ -51,19 +59,5 @@ export default class PuzzleCardsPage extends Component {
         </div>
       </div>
     );
-  }
-  addNewCard = () => {
-    this.setState(prevState => {
-      const prevCardList = prevState.cardList;
-      this.counter += 1;
-      const card = {
-        id: this.counter,
-        setup: 'Lorem ipsum dolor sit amet, counter is' + this.counter,
-        punchline: 'sed do eiusmod tempor incididunt, counter is' + this.counter,
-      };
-      return {
-        cardList: prevCardList.concat(card),
-      }
-    })
   }
 }
