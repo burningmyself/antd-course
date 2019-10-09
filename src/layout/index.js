@@ -26,6 +26,12 @@ class BasicLayout extends Component {
               <span>puzzlecards</span>
             </Link>
           </Menu.Item>
+          <Menu.Item key="210">
+            <Link to="/cards">
+              <Icon type="pie-chart"/>
+              <span>cards</span>
+            </Link>
+          </Menu.Item>
           <SubMenu 
             key="sub1"
             title={<span><Icon type="dashboard" /><span>Dashboard</span></span>}
